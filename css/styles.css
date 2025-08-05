@@ -1,3 +1,18 @@
-body{
-    background-color:  #ADD8E6;
+body {
+  background-color: #add8e6;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 50px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#tulokset {
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
 }
