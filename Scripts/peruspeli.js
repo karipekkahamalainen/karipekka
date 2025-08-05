@@ -8,6 +8,7 @@ let kierrokset = 0;
 
 function arvoNumerot() {
   const numerot = new Set();
+  console.log("Nappia painettu");
   while (numerot.size < 7) {
     numerot.add(Math.floor(Math.random() * 39) + 1);
   }
@@ -28,6 +29,7 @@ function paivitaNäyttö(arvot, kierros) {
 }
 
 function aloitaGenerointi() {
+    console.log("Nappia painettu generointiin");
   const userInput = document.getElementById("userNumbers").value;
   const userNums = userInput.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n) && n >=1 && n <=39);
 
