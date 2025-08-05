@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Tervetuloa</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>Tämä on minun ensimmäinen GitHub Pages -sivuni.</p><br>
-    <p>Jos tämän saisi pullattua nettiin.</p>
-     <h1>Lotonumero generaattori</h1>
-  <button onclick="arvoNumerot()">Arvo numerot</button><br>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lotto Generaattori</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <h1>Lotto Generaattori</h1>
+
+  <p>Syötä 7 numeroa (1-39), erottele pilkulla:</p>
+  <input type="text" id="userNumbers" placeholder="esim. 3,7,15,22,29,33,39" size="30" />
+  <button id="startBtn">Aloita generointi</button>
+  <button id="stopBtn" disabled>Pysäytä</button>
 
   <div id="tulokset"></div>
+  <div id="laskuri"></div>
 
   <script src="Scripts/peruspeli.js"></script>
-  </body>
+</body>
 </html>
