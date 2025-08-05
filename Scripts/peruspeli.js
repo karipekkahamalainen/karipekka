@@ -53,7 +53,7 @@ function aloitaGenerointi() {
       startBtn.disabled = false;
       stopBtn.disabled = true;
     }
-  }, 100); // pyörii 100ms välein eli 10 kertaa sekunnissa
+  }, 20); // pyörii 100ms välein eli 10 kertaa sekunnissa
 }
 
 function pysaytaGenerointi() {
@@ -63,6 +63,49 @@ function pysaytaGenerointi() {
     startBtn.disabled = false;
     stopBtn.disabled = true;
   }
+}
+function laskeOsumat(arr1, arr2) {
+  let osumat = 0;
+  const setUser = new Set(arr2);
+  for (const num of arr1) {
+    if (setUser.has(num)) {
+      osumat++;
+    }
+  }
+  return osumat;
+}
+
+function paivitaNäyttö(arvot, kierros, osumat) {
+  tulokset.textContent = "Arvottu rivi: " + arvot.join(" - ");
+  laskuri.textContent = `Kierroksia: ${kierros} | Osumia: ${osumat} / 7`;
+}
+
+function aloitaGenerointi() {
+  const userInput = document.getElementById("userNumbers").value;
+  const userNums = userInput.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n) && n >=1 && n <=39);
+
+  if (userNums.length !== 7) {
+    alert("Syötä täsmälleen 7 numeroa, arvot väliltä 1–39!");
+    return;
+  }
+
+  kierrokset = 0;
+  startBtn.disabled = true;
+  stopBtn.disabled = false;
+
+  intervalId = setInterval(() => {
+    kierrokset++;
+    const arvot = arvoNumerot();
+    const osumat = laskeOsumat(arvot, userNums);
+    paivitaNäyttö(arvot, kierrokset, osumat);
+
+    if (osumat === 7) {
+      clearInterval(intervalId);
+      alert(`Lotto osui oikein ${kierrokset}. arvonnalla! 🎉`);
+      startBtn.disabled = false;
+      stopBtn.disabled = true;
+    }
+  }, 20); // pyörii 100ms välein
 }
 
 startBtn.addEventListener("click", aloitaGenerointi);
